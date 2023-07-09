@@ -132,6 +132,22 @@ aws s3 cp ~/wms-backend-v1.0.0.zip s3://$WMS_S3_BUCKET/
 #------------------------------ Delete to free-up the storage space
 sudo rm -f ~/wms-frontend-v1.0.0.zip
 sudo rm -f ~/wms-backend-v1.0.0.zip
+#------------------------------ Create JSON for S3 Permission LifeCyle auto delete after 2 days
+sudo rm -f lifecycle.json
+printf "{\n" >> lifecycle.json
+printf "    "Rules": [\n" >> lifecycle.json
+printf "        {\n" >> lifecycle.json
+printf "            "ID": "delete-after-2-days",\n" >> lifecycle.json
+printf "            "Status": "Enabled",\n" >> lifecycle.json
+printf "            "Prefix": "logs/",\n" >> lifecycle.json
+printf "            "NoncurrentVersionExpiration": {\n" >> lifecycle.json
+printf "                "NoncurrentDays": 2\n" >> lifecycle.json
+printf "            }\n" >> lifecycle.json
+printf "        }\n" >> lifecycle.json
+printf "    ]\n" >> lifecycle.json
+printf "}\n" >> lifecycle.json
+aws s3api put-bucket-lifecycle --bucket $WMS_S3_BUCKET --lifecycle-configuration file://lifecycle.json
+
 sudo rm -f ~/wms.zip
 #------------------------------ S3 Bucket name information for user
 echo  $WMS_S3_BUCKET
