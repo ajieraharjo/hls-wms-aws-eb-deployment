@@ -133,9 +133,9 @@ sudo rm -rf ~/wms-backend-v1.0.0
 aws s3 cp ~/wms-frontend-v1.0.0.zip s3://$WMS_S3_BUCKET/
 aws s3 cp ~/wms-backend-v1.0.0.zip s3://$WMS_S3_BUCKET/
 #------------------------------ Delete to free-up the storage space
-sudo rm -f ~/wms-frontend-v1.0.0.zip
-sudo rm -f ~/wms-backend-v1.0.0.zip
-sudo rm -f ~/wms.zip
+#sudo rm -f ~/wms-frontend-v1.0.0.zip
+#sudo rm -f ~/wms-backend-v1.0.0.zip
+#sudo rm -f ~/wms.zip
 #------------------------------ Create JSON for S3 Permission LifeCyle auto delete after 2 days
 sudo rm -f lifecycle.json
 echo '{' >> lifecycle.json
