@@ -4,9 +4,6 @@ set -v
 WMS_S3_BUCKET=wms-$(cat /proc/sys/kernel/random/uuid)
 WMS_S3_PARAM=" "
 WMS_S3_REGION="--region ap-southeast-1"
-echo  $WMS_S3_BUCKET
-echo  $WMS_S3_PARAM
-echo  $WMS_S3_REGION
 #------------------------------ Create S3 Bucket
 echo aws s3 mb s3://$WMS_S3_BUCKET$WMS_S3_PARAM$WMS_S3_REGION
 aws s3 mb s3://$WMS_S3_BUCKET$WMS_S3_PARAM$WMS_S3_REGION
@@ -16,23 +13,20 @@ aws s3 ls $WMS_S3_BUCKET
 #------------------------------ Clean up existing wms.zip & Download Source Installer wms.zip
 #aws s3 rm s3://$WMS_S3_BUCKET/wms/ --recursive
 sudo rm -f ~/wms.zip
-#sudo wget https://archive.org/download/wms-frontend-v1.0.0/wms.zip
-#sudo unzip wms.zip
-wget -O /tmp/z.$$ https://archive.org/download/wms-frontend-v1.0.0/wms.zip && unzip -d ~/wms /tmp/z.$$ && rm /tmp/z.$$
+sudo wget https://archive.org/download/wms-frontend-v1.0.0/wms.zip
+sudo unzip wms.zip
 #------------------------------ SYNC Installer wms folder into S3 Bucket
 aws s3 sync ~/wms s3://$WMS_S3_BUCKET/wms/
 sudo rm -rf ~/wms
 #------------------------------ Download source installer wms-frontend-v1.0.0.zip
-sudo wget -O /tmp/z.$$ https://archive.org/download/wms-frontend-v1.0.0/wms-frontend-v1.0.0.zip && unzip -d ~/wms-frontend-v1.0.0 /tmp/z.$$ && rm /tmp/z.$$
-#sudo wget https://archive.org/download/wms-frontend-v1.0.0/wms-frontend-v1.0.0.zip
-#sudo unzip wms-frontend-v1.0.0.zip
-#sudo rm -f ~/wms-frontend-v1.0.0.zip
+sudo wget https://archive.org/download/wms-frontend-v1.0.0/wms-frontend-v1.0.0.zip
+sudo unzip wms-frontend-v1.0.0.zip
+sudo rm -f ~/wms-frontend-v1.0.0.zip
 sudo rm -f ~/wms-frontend-v1.0.0/.ebextensions/101-option.setting
 #------------------------------ Download source installer wms-backend-v1.0.0.zip
-sudo wget -O /tmp/z.$$ https://archive.org/download/wms-frontend-v1.0.0/wms-backend-v1.0.0.zip && unzip -d ~/wms-backend-v1.0.0 /tmp/z.$$ && rm /tmp/z.$$
-#sudo sudo wget https://archive.org/download/wms-frontend-v1.0.0/wms-backend-v1.0.0.zip
-#sudo unzip wms-backend-v1.0.0.zip
-#sudo rm -f ~/wms-backend-v1.0.0.zip
+sudo sudo wget https://archive.org/download/wms-frontend-v1.0.0/wms-backend-v1.0.0.zip
+sudo unzip wms-backend-v1.0.0.zip
+sudo rm -f ~/wms-backend-v1.0.0.zip
 sudo rm -f ~/wms-backend-v1.0.0/.ebextensions/101-option.setting
 #------------------------------ Setup variable EB Option environment for 101-option.setting
 ## parameter for others   "
@@ -133,9 +127,9 @@ sudo rm -rf ~/wms-backend-v1.0.0
 aws s3 cp ~/wms-frontend-v1.0.0.zip s3://$WMS_S3_BUCKET/
 aws s3 cp ~/wms-backend-v1.0.0.zip s3://$WMS_S3_BUCKET/
 #------------------------------ Delete to free-up the storage space
-#sudo rm -f ~/wms-frontend-v1.0.0.zip
-#sudo rm -f ~/wms-backend-v1.0.0.zip
-#sudo rm -f ~/wms.zip
+sudo rm -f ~/wms-frontend-v1.0.0.zip
+sudo rm -f ~/wms-backend-v1.0.0.zip
+sudo rm -f ~/wms.zip
 #------------------------------ Create JSON for S3 Permission LifeCyle auto delete after 2 days
 sudo rm -f lifecycle.json
 echo '{' >> lifecycle.json
