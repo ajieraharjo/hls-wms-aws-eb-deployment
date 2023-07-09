@@ -135,18 +135,18 @@ sudo rm -f ~/wms-backend-v1.0.0.zip
 sudo rm -f ~/wms.zip
 #------------------------------ Create JSON for S3 Permission LifeCyle auto delete after 2 days
 sudo rm -f lifecycle.json
-printf "{\n" >> lifecycle.json
-printf "    "Rules": [\n" >> lifecycle.json
-printf "        {\n" >> lifecycle.json
-printf "            "ID": "delete-after-2-days",\n" >> lifecycle.json
-printf "            "Status": "Enabled",\n" >> lifecycle.json
-printf "            "Prefix": "logs/",\n" >> lifecycle.json
-printf "            "NoncurrentVersionExpiration": {\n" >> lifecycle.json
-printf "                "NoncurrentDays": 2\n" >> lifecycle.json
-printf "            }\n" >> lifecycle.json
-printf "        }\n" >> lifecycle.json
-printf "    ]\n" >> lifecycle.json
-printf "}\n" >> lifecycle.json
+echo '{\n' >> lifecycle.json
+echo '    "Rules": [\n' >> lifecycle.json
+echo '        {\n' >> lifecycle.json
+echo '            "ID": "delete-after-2-days",\n' >> lifecycle.json
+echo '            "Status": "Enabled",\n' >> lifecycle.json
+echo '            "Prefix": "logs/",\n' >> lifecycle.json
+echo '            "NoncurrentVersionExpiration": {\n' >> lifecycle.json
+echo '                "NoncurrentDays": 2\n' >> lifecycle.json
+echo '            }\n' >> lifecycle.json
+echo '        }\n' >> lifecycle.json
+echo '    ]\n' >> lifecycle.json
+echo '}\n' >> lifecycle.json
 aws s3api put-bucket-lifecycle --bucket $WMS_S3_BUCKET --lifecycle-configuration file://lifecycle.json
 rm -f ~/lifecycle.json
 #------------------------------ S3 Bucket name information for user
