@@ -133,5 +133,5 @@ aws s3 cp ~/wms-backend-v1.0.0.zip s3://$WMS_S3_BUCKET/
 sudo rm -f ~/wms-frontend-v1.0.0.zip
 sudo rm -f ~/wms-backend-v1.0.0.zip
 sudo rm -f ~/wms.zip
-# cat ~/101-option.config | more
+#------------------------------ S3 Bucket name information for user
 echo  $WMS_S3_BUCKET
