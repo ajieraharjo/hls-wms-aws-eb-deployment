@@ -28,19 +28,19 @@ sudo unzip wms-backend-v1.0.0.zip
 sudo rm -f ~/wms-backend-v1.0.0.zip
 sudo rm -f ~/wms-backend-v1.0.0/.ebextensions/101-option.setting
 #------------------------------ Setup variable EB Option environment for 101-option.setting
-## parameter for others   "
+## parameter for others
 configFiles_location_root="/data/fluxwms-configs/"
 default_client_encoding="UTF-8"
 file_encoding="UTF-8"
 logFiles_location_root="/data/business-logs/"
 spring_profiles_active="env3001,hessian"
 user_timezone="Asia/Manila"
-## parameter for S3  ""
+## parameter for S3
 ## WMS_S3_BUCKET=elasticbeanstalk-ap-southeast-1-222132558461
-## parameter for WMS URL  ""
+## parameter for WMS URL
 WMS_BACKEND_URL="Wms-application-backend-prod.eba-tipp73xa.ap-southeast-1.elasticbeanstalk.com"
 WMS_FRONTEND_URL="Wms-application-frontend-prod.eba-tipp73xa.ap-southeast-1.elasticbeanstalk.com"
-## parameter for MYSQL""
+## parameter for MYSQL
 WMS_MYSQL_DBNAME="wms_prod"
 WMS_MYSQL_PWD="Password.1"
 WMS_MYSQL_URL="wms-mhs-prod.cwlqsx0cn77x.ap-southeast-1.rds.amazonaws.com"
@@ -48,17 +48,17 @@ WMS_MYSQL_USER="admin"
 DMS_MYSQL_DBNAME="dms_prod"
 DMS_MYSQL_PWD="Password.1"
 DMS_MYSQL_USER="admin"
-## parameter for REDIS   ""
+## parameter for REDIS
 REDIS_AUTH="QQE124dfg738DsWv"
 REDIS_MASTER_URL="master.redis-wms-mhs-prod.h4irck.apse1.cache.amazonaws.com"
 REDIS_REPLICA_URL="replica.redis-wms-mhs-prod.h4irck.apse1.cache.amazonaws.com"
-## parameter for KAFKA & ZOOKEEPER   ""
+## parameter for KAFKA & ZOOKEEPER
 WMS_KAFKA_BROKER1="b-1.kafkawmsmhs.pemmkc.c5.kafka.ap-southeast-1.amazonaws.com"
 WMS_KAFKA_BROKER2="b-2.kafkawmsmhs.pemmkc.c5.kafka.ap-southeast-1.amazonaws.com"
 WMS_ZK1="z-1.kafkawmsmhs.pemmkc.c5.kafka.ap-southeast-1.amazonaws.com"
 WMS_ZK2="z-2.kafkawmsmhs.pemmkc.c5.kafka.ap-southeast-1.amazonaws.com"
 WMS_ZK3="z-3.kafkawmsmhs.pemmkc.c5.kafka.ap-southeast-1.amazonaws.com"
-## parameter for MONGODB   ""
+## parameter for MONGODB
 WMS_MONGODB_DH_AUTHSRC="datahubmongo"
 WMS_MONGODB_DH_PWD="da242wtahub!@#456"
 WMS_MONGODB_DH_USER="datahubmongo"
