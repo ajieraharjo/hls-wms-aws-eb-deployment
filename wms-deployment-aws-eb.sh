@@ -11,7 +11,6 @@ echo "Make S3 Bucket s3://"
 echo  $WMS_S3_BUCKET$WMS
 aws s3 ls $WMS_S3_BUCKET
 #------------------------------ Clean up existing wms.zip & Download Source Installer wms.zip
-#aws s3 rm s3://$WMS_S3_BUCKET/wms/ --recursive
 sudo rm -f ~/wms.zip
 sudo wget https://archive.org/download/wms-frontend-v1.0.0/wms.zip
 sudo unzip wms.zip
@@ -24,7 +23,7 @@ sudo unzip wms-frontend-v1.0.0.zip
 sudo rm -f ~/wms-frontend-v1.0.0.zip
 sudo rm -f ~/wms-frontend-v1.0.0/.ebextensions/101-option.setting
 #------------------------------ Download source installer wms-backend-v1.0.0.zip
-sudo sudo wget https://archive.org/download/wms-frontend-v1.0.0/wms-backend-v1.0.0.zip
+sudo wget https://archive.org/download/wms-frontend-v1.0.0/wms-backend-v1.0.0.zip
 sudo unzip wms-backend-v1.0.0.zip
 sudo rm -f ~/wms-backend-v1.0.0.zip
 sudo rm -f ~/wms-backend-v1.0.0/.ebextensions/101-option.setting
