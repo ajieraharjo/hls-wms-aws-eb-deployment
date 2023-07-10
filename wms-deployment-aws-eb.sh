@@ -1,6 +1,6 @@
 #!/bin/bash
 set -v
-#------------------------------ Setting variable for S3 Bucket
+#------------------------------ Setting variable for S3 Bucket.
 WMS_S3_BUCKET=wms-$(cat /proc/sys/kernel/random/uuid)
 WMS_S3_PARAM=" "
 WMS_S3_REGION="--region ap-southeast-1"
