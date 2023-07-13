@@ -136,7 +136,7 @@ echo '    "Rules": [' >> lifecycle.json
 echo '        {' >> lifecycle.json
 echo '            "ID": "delete-after-2-days",' >> lifecycle.json
 echo '            "Status": "Enabled",' >> lifecycle.json
-echo '            "Prefix": "logs/",' >> lifecycle.json
+echo '            "Prefix": "wms/",' >> lifecycle.json
 echo '            "NoncurrentVersionExpiration": {' >> lifecycle.json
 echo '                "NoncurrentDays": 2' >> lifecycle.json
 echo '            }' >> lifecycle.json
