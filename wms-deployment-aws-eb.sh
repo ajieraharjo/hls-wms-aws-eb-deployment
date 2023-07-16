@@ -17,6 +17,7 @@ sudo unzip wms.zip
 #------------------------------ SYNC Installer wms folder into S3 Bucket
 aws s3 sync ~/wms s3://$WMS_S3_BUCKET/wms/
 sudo rm -rf ~/wms
+sudo rm -f ~/wms.zip
 #------------------------------ Download source installer wms-frontend-v1.0.0.zip
 sudo wget https://archive.org/download/wms-frontend-v1.0.0/wms-frontend-v1.0.0.zip
 sudo unzip wms-frontend-v1.0.0.zip
@@ -128,7 +129,6 @@ aws s3 cp ~/wms-backend-v1.0.0.zip s3://$WMS_S3_BUCKET/
 #------------------------------ Delete to free-up the storage space
 sudo rm -f ~/wms-frontend-v1.0.0.zip
 sudo rm -f ~/wms-backend-v1.0.0.zip
-sudo rm -f ~/wms.zip
 #------------------------------ Create JSON for S3 Permission LifeCyle auto delete after 2 days
 sudo rm -f lifecycle.json
 echo '{' >> lifecycle.json
