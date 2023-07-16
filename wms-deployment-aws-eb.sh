@@ -119,9 +119,9 @@ sudo cp ~/101-option.config ~/wms-frontend-v1.0.0/.ebextensions
 sudo cp ~/101-option.config ~/wms-backend-v1.0.0/.ebextensions
 sudo rm -f ~/101-option.config
 #------------------------------ ZIP modify folder for wms-frontend-v1.0.0 and wms-backend-v1.0.0
-sudo zip  ~/wms-frontend-v1.0.0.zip ~/wms-frontend-v1.0.0/ -r
+sudo zip  ~/wms-frontend-v1.0.0.zip wms-frontend-v1.0.0/ -r
 sudo rm -rf ~/wms-frontend-v1.0.0
-sudo zip  ~/wms-backend-v1.0.0.zip ~/wms-backend-v1.0.0/ -r
+sudo zip  ~/wms-backend-v1.0.0.zip wms-backend-v1.0.0/ -r
 sudo rm -rf ~/wms-backend-v1.0.0
 #------------------------------ Upload wms-frontend-v1.0.0.zip and wms-backend-v1.0.0.zip info S3 Bucket for Deployment
 aws s3 cp ~/wms-frontend-v1.0.0.zip s3://$WMS_S3_BUCKET/
