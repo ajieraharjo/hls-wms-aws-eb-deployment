@@ -14,10 +14,10 @@ aws s3 ls $WMS_S3_BUCKET
 sudo rm -f ~/wms.zip
 sudo wget https://archive.org/download/wms-frontend-v1.0.0/wms.zip
 sudo unzip wms.zip
+sudo rm -f ~/wms.zip
 #------------------------------ SYNC Installer wms folder into S3 Bucket
 aws s3 sync ~/wms s3://$WMS_S3_BUCKET/wms/
 sudo rm -rf ~/wms
-sudo rm -f ~/wms.zip
 #------------------------------ Download source installer wms-frontend-v1.0.0.zip
 sudo wget https://archive.org/download/wms-frontend-v1.0.0/wms-frontend-v1.0.0.zip
 sudo unzip wms-frontend-v1.0.0.zip
