@@ -32,10 +32,14 @@ wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.14/bin/apache-tomcat-9
 tar -zxvf apache-tomcat-9.0.14.tar.gz 
 mkdir /data/software
 mkdir /data/software/tomcat
+mkdir /data/software/tomcat/shared-libs
 mv apache-tomcat-9.0.14/* /data/software/tomcat
+#-- updating TOMCAT configuration
+sed -i 's/Connector port="8080"/Connector port="8080" URIEncoding="UTF-8"/' /data/software/tomcat/conf/server.xml
+sed -i 's+shared.loader=+shared.loader="/usr/share/tomcat/shared-libs","/usr/share/tomcat/shared-libs/*.jar"+' /data/software/tomcat/conf/catalina.properties
 cd /data/software/tomcat/webapps/
 wget https://archive.org/download/wms-hls-installer/birt.war
-rm docs/examples/ -rf
+#-- rm docs/examples/ -rf
 source /etc/profile
 sleep 30
 lynx http://localhost:8080/birt
