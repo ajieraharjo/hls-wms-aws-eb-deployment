@@ -32,7 +32,7 @@ cat configure_environment.cfg >> /etc/profile
 wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.14/bin/apache-tomcat-9.0.14.tar.gz
 tar -zxvf apache-tomcat-9.0.14.tar.gz
 wget https://archive.org/download/wms-hls-installer/shared-libs.zip
-unzip wms.zip 
+unzip shared-libs.zip 
 mkdir /data/software
 mkdir /data/software/tomcat
 mkdir /data/software/tomcat/shared-libs
