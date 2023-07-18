@@ -12,7 +12,7 @@ sed -i '/JAVA_HOME=/d' /etc/profile
 sed -i '/JAVA_BIN=/d' /etc/profile
 sed -i '/PATH=/d' /etc/profile
 sed -i '/CLASSPATH=.:/data/jdk1.8.0_181/lib/dt.jar:/data/jdk1.8.0_181/lib/tools.jar=/d' /etc/profile
-sed -i '/export JAVA_HOME JAVA_BIN PATH CLASSPATH=/d' /etc/profile
+sed -i '/export JAVA_HOME JAVA_BIN PATH CLASSPATH/d' /etc/profile
 ------- installing JAVA  jdk1.8.0_181
 wget https://repo.huaweicloud.com/java/jdk/8u181-b13/jdk-8u181-linux-x64.tar.gz
 tar -zxvf jdk-8u181-linux-x64.tar.gz
