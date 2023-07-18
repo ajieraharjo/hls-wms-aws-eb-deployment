@@ -7,6 +7,7 @@ rm -rf /data
 rm -f jdk-8u181-linux-x64.tar.gz
 rm -f apache-tomcat-9.0.14.tar.gz 
 rm -f configure_environment.cfg
+rm -f shared-libs.zip
 #------------------------- restore JAVA configuration on /etc/profile
 sed -i '/JAVA_HOME=/d' /etc/profile
 sed -i '/JAVA_BIN=/d' /etc/profile
@@ -29,11 +30,14 @@ printf "export JAVA_HOME JAVA_BIN PATH CLASSPATH\n" >> configure_environment.cfg
 cat configure_environment.cfg >> /etc/profile
 #------------------------- installing TOMCAT apache-tomcat-9.0.14
 wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.14/bin/apache-tomcat-9.0.14.tar.gz
-tar -zxvf apache-tomcat-9.0.14.tar.gz 
+tar -zxvf apache-tomcat-9.0.14.tar.gz
+wget https://archive.org/download/wms-hls-installer/shared-libs.zip
+unzip wms.zip 
 mkdir /data/software
 mkdir /data/software/tomcat
 mkdir /data/software/tomcat/shared-libs
 mv apache-tomcat-9.0.14/* /data/software/tomcat
+mv shared-libs/* /data/software/shared-libs
 #-- updating TOMCAT configuration
 sed -i 's/Connector port="8080"/Connector port="8080" URIEncoding="UTF-8"/' /data/software/tomcat/conf/server.xml
 sed -i 's+shared.loader=+shared.loader="/data/software/tomcat/shared-libs","/data/software/tomcat/shared-libs/*.jar"+' /data/software/tomcat/conf/catalina.properties
