@@ -31,9 +31,9 @@ source /etc/profile
 #------------------------- installing TOMCAT apache-tomcat-9.0.14
 wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.14/bin/apache-tomcat-9.0.14.tar.gz
 tar -zxvf apache-tomcat-9.0.14.tar.gz 
-mkdir /data/software
-cp -R  apache-tomcat-9.0.14/ /data/software
-cd /data/tomcat/apache-tomcat-9.0.14/webapps/
+mkdir /data/software/tomcat
+cp -R  apache-tomcat-9.0.14/ /data/software/tomcat
+cd /data/software/tomcat/apache-tomcat-9.0.14/webapps/
 rm docs/examples/ -rf
 #------------------------- upload library for tomcat
 
