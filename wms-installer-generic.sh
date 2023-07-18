@@ -36,6 +36,7 @@ mv apache-tomcat-9.0.14/* /data/software/tomcat
 cd /data/software/tomcat/webapps/
 rm docs/examples/ -rf
 source /etc/profile
+sleep 30
 lynx http://localhost:8080
 #------------------------- upload library for tomcat
 
