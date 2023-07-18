@@ -33,8 +33,8 @@ wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.14/bin/apache-tomcat-9
 tar -zxvf apache-tomcat-9.0.14.tar.gz 
 mkdir /data/software
 mkdir /data/software/tomcat
-cp -R  apache-tomcat-9.0.14/ /data/software/tomcat
-cd /data/software/tomcat/apache-tomcat-9.0.14/webapps/
+mv apache-tomcat-9.0.14/* /data/software/tomcat
+cd /data/software/tomcat/webapps/
 rm docs/examples/ -rf
 #------------------------- upload library for tomcat
 
