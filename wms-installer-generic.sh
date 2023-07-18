@@ -38,8 +38,8 @@ tar -zxvf apache-tomcat-9.0.14.tar.gz
 unzip shared-libs.zip 
 #------------------------- Modify catalina.sh
 echo '#!/bin/bash' >> setenv.sh
-echo 'JAVA_HOME=/data/jdk1.8.0_144' >> setenv.sh
-echo 'CATALINA_HOME=/data/software/tomcat'
+#echo 'JAVA_HOME=/data/jdk1.8.0_144' >> setenv.sh
+#echo 'CATALINA_HOME=/data/software/tomcat'
 echo 'JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF-8 -Ddefault.client.encoding=UTF-8"' >> setenv.sh
 echo 'JAVA_OPTS="$JAVA_OPTS -Duser.timezone=Asia/Jakarta"' >> setenv.sh
 echo 'JAVA_OPTS="$JAVA_OPTS -Xms256m -Xmx716m-XX:MetaspaceSize=128M -XX:MaxMetaspaceSize=256M"' >> setenv.sh
