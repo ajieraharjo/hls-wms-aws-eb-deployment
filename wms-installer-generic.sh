@@ -7,7 +7,7 @@ rm -rf /data
 rm -f jdk-8u181-linux-x64.tar.gz
 rm -f apache-tomcat-9.0.14.tar.gz 
 rm -f configure_environment.cfg
-#rm -f shared-libs.zip
+rm -f shared-libs.zip
 rm -f setenv.sh
 #------------------------- restore JAVA configuration on /etc/profile
 sed -i '/JAVA_HOME=/d' /etc/profile
@@ -34,7 +34,7 @@ source /etc/profile
 #------------------------- installing TOMCAT apache-tomcat-9.0.14
 wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.14/bin/apache-tomcat-9.0.14.tar.gz
 tar -zxvf apache-tomcat-9.0.14.tar.gz
-#wget https://archive.org/download/wms-hls-installer/shared-libs.zip
+wget https://archive.org/download/wms-hls-installer/shared-libs.zip
 unzip shared-libs.zip 
 #------------------------- Modify catalina.sh
 echo '#!/bin/bash' >> setenv.sh
@@ -42,10 +42,10 @@ echo '#!/bin/bash' >> setenv.sh
 #echo 'CATALINA_HOME=/data/software/tomcat'
 echo 'JAVA_OPTS="$JAVA_OPTS -Dfile.encoding=UTF-8 -Ddefault.client.encoding=UTF-8"' >> setenv.sh
 echo 'JAVA_OPTS="$JAVA_OPTS -Duser.timezone=Asia/Jakarta"' >> setenv.sh
-echo 'JAVA_OPTS="$JAVA_OPTS -Xms256m -Xmx716m-XX:MetaspaceSize=128M -XX:MaxMetaspaceSize=256M"' >> setenv.sh
+echo 'JAVA_OPTS="$JAVA_OPTS -Xms256m -Xmx256m -XX:MetaspaceSize=128M -XX:MaxMetaspaceSize=256M"' >> setenv.sh
 echo 'JAVA_OPTS="$JAVA_OPTS -Dspring.profiles.active=env3001,hessian"' >> setenv.sh
-echo 'JAVA_OPTS="$JAVA_OPTS -DlogFiles.location.root=/data/business-logs/"' >> setenv.sh
-echo 'JAVA_OPTS="$JAVA_OPTS -DlogFiles.location.root=/data/business-logs/ -Dspring.profiles.active=env3001,hessian -DconfigFiles.location.root=/data/fluxwms-configs/"' >> setenv.sh
+echo 'JAVA_OPTS="$JAVA_OPTS -DlogFiles.location.root=/data/bussines-logs/"' >> setenv.sh
+echo 'JAVA_OPTS="$JAVA_OPTS -DconfigFiles.location.root=/data/fluxwms-config/"'  >> setenv.sh
 chmod +x setenv.sh
 #------------------------- Modify server.xml
 mkdir /data/software
@@ -60,8 +60,8 @@ sed -i 's+shared.loader=+shared.loader="/data/software/tomcat/lib","/data/softwa
 cd /data/software/tomcat/webapps/
 wget https://archive.org/download/wms-hls-installer/birt.war
 #-- rm docs/examples/ -rf
-source /etc/profile
+#source /etc/profile
 #sleep 30
-lynx http://localhost:8080/birt
+#lynx http://localhost:8080/birt
 #------------------------- upload library for tomcat
 
