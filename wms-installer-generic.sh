@@ -27,7 +27,6 @@ printf "PATH=/data/jdk1.8.0_181/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/us
 printf "CLASSPATH=.:/data/jdk1.8.0_181/lib/dt.jar:/data/jdk1.8.0_181/lib/tools.jar\n" >> configure_environment.cfg
 printf "export JAVA_HOME JAVA_BIN PATH CLASSPATH\n" >> configure_environment.cfg
 cat configure_environment.cfg >> /etc/profile
-source /etc/profile
 #------------------------- installing TOMCAT apache-tomcat-9.0.14
 wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.14/bin/apache-tomcat-9.0.14.tar.gz
 tar -zxvf apache-tomcat-9.0.14.tar.gz 
@@ -36,5 +35,7 @@ mkdir /data/software/tomcat
 mv apache-tomcat-9.0.14/* /data/software/tomcat
 cd /data/software/tomcat/webapps/
 rm docs/examples/ -rf
+source /etc/profile
+lynx http://localhost:8080
 #------------------------- upload library for tomcat
 
