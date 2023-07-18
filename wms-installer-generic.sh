@@ -37,7 +37,7 @@ mkdir /data/software
 mkdir /data/software/tomcat
 mkdir /data/software/tomcat/shared-libs
 mv apache-tomcat-9.0.14/* /data/software/tomcat
-mv shared-libs/* /data/software/shared-libs
+mv shared-libs/* /data/software/tomcat/shared-libs
 #-- updating TOMCAT configuration
 sed -i 's/Connector port="8080"/Connector port="8080" URIEncoding="UTF-8"/' /data/software/tomcat/conf/server.xml
 sed -i 's+shared.loader=+shared.loader="/data/software/tomcat/shared-libs","/data/software/tomcat/shared-libs/*.jar"+' /data/software/tomcat/conf/catalina.properties
