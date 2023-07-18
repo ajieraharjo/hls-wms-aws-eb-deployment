@@ -29,7 +29,7 @@ printf "export JAVA_HOME JAVA_BIN PATH CLASSPATH\n" >> configure_environment.cfg
 cat configure_environment.cfg >> /etc/profile
 #------------------------- installing TOMCAT apache-tomcat-9.0.14
 wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.14/bin/apache-tomcat-9.0.14.tar.gz
-wget https://archive.org/download/wms-hls-installer/birt.war -O /data/software/tomcat/webapps
+wget https://archive.org/download/wms-hls-installer/birt.war -O /data/software/tomcat/webapps/birt.war
 tar -zxvf apache-tomcat-9.0.14.tar.gz 
 mkdir /data/software
 mkdir /data/software/tomcat
@@ -38,6 +38,6 @@ cd /data/software/tomcat/webapps/
 rm docs/examples/ -rf
 source /etc/profile
 sleep 30
-lynx http://localhost:8080
+lynx http://localhost:8080/birt
 #------------------------- upload library for tomcat
 
