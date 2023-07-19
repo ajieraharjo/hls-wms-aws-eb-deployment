@@ -28,8 +28,8 @@ echo 'JAVA_OPTS="$JAVA_OPTS -DconfigFiles.location.root=/data/fluxwms-config/"' 
 chmod +x setenv.sh
 cp setenv.sh apache-tomcat-9.0.14/bin
 #------------------------ Modify server.xml
-sudo sed -i 's/Connector port="8080"/Connector port="8080" URIEncoding="UTF-8"/' /data/software/tomcat/conf/server.xml
-sudo sed -i 's+shared.loader=+shared.loader="/data/software/tomcat/lib","/data/software/tomcat/lib/*.jar"+' /data/software/tomcat/conf/catalina.properties
+sudo sed -i 's/Connector port="8080"/Connector port="8080" URIEncoding="UTF-8"/' apache-tomcat-9.0.14/conf/server.xml
+sudo sed -i 's+shared.loader=+shared.loader="/data/software/tomcat/lib","/data/software/tomcat/lib/*.jar"+' apache-tomcat-9.0.14/conf/catalina.properties
 #------------------------ Update TOMCAT libraries
 #------------------------ Deploy sample .war file
 sudo wget https://archive.org/download/wms-hls-installer/birt.war
