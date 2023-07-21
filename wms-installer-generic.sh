@@ -1,5 +1,13 @@
 #!/bin/bash
 set -v
+#------------------------
+sudo sed -i '/JAVA_HOME=/d' /etc/profile
+sudo sed -i '/JAVA_BIN=/d' /etc/profile
+sudo sed -i '/PATH=/d' /etc/profile
+sudo sed -i '/CLASSPATH=.:/data/jdk1.8.0_181/lib/dt.jar:/data/jdk1.8.0_181/lib/tools.jar=/d' /etc/profile
+sudo sed -i '/export JAVA_HOME JAVA_BIN PATH CLASSPATH/d' /etc/profile
+rm -rf /data
+#------------------------
 sudo mkdir /data
 sudo mkdir /data/software
 sudo mkdir /data/bussines-logs
@@ -32,8 +40,8 @@ sudo sed -i 's/Connector port="8080"/Connector port="8080" URIEncoding="UTF-8"/'
 sudo sed -i 's+shared.loader=+shared.loader="/data/software/tomcat/lib","/data/software/tomcat/lib/*.jar"+' apache-tomcat-9.0.14/conf/catalina.properties
 #------------------------ Update TOMCAT libraries
 #------------------------ Deploy sample .war file
-sudo wget https://archive.org/download/wms-hls-installer/birt.war
-cp birt.war apache-tomcat-9.0.14/webapps
+#sudo wget https://archive.org/download/wms-hls-installer/birt.war
+#cp birt.war apache-tomcat-9.0.14/webapps
 #------------------------ 
 sudo cp -R apache-tomcat-9.0.14/ /data
 exit
