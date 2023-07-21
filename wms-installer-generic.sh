@@ -6,7 +6,7 @@ sudo sed -i '/JAVA_BIN=/d' /etc/profile
 sudo sed -i '/PATH=/d' /etc/profile
 sudo sed -i '/CLASSPATH=.:/data/jdk1.8.0_181/lib/dt.jar:/data/jdk1.8.0_181/lib/tools.jar=/d' /etc/profile
 sudo sed -i '/export JAVA_HOME JAVA_BIN PATH CLASSPATH/d' /etc/profile
-rm -rf /data
+sudo rm -rf /data
 #------------------------
 sudo mkdir /data
 sudo mkdir /data/software
@@ -37,7 +37,7 @@ chmod +x setenv.sh
 cp setenv.sh apache-tomcat-9.0.14/bin
 #------------------------ Modify server.xml
 sudo sed -i 's/Connector port="8080"/Connector port="8080" URIEncoding="UTF-8"/' apache-tomcat-9.0.14/conf/server.xml
-sudo sed -i 's+shared.loader=+shared.loader="/data/software/tomcat/lib","/data/software/tomcat/lib/*.jar"+' apache-tomcat-9.0.14/conf/catalina.properties
+sudo sed -i 's+shared.loader=+shared.loader="/data/apache-tomcat-9.0.14/lib","/data/apache-tomcat-9.0.14/lib/*.jar"+' apache-tomcat-9.0.14/conf/catalina.properties
 #------------------------ Update TOMCAT libraries
 #------------------------ Deploy sample .war file
 #sudo wget https://archive.org/download/wms-hls-installer/birt.war
