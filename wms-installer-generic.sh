@@ -13,6 +13,7 @@ sudo mkdir /data/software
 sudo mkdir /data/bussines-logs
 sudo mkdir /data/fluxwms-config
 #------------------------- Installing JAVA
+sudo wget https://raw.githubusercontent.com/ajieraharjo/hls-wms-aws-eb-deployment/main/fluxwms-config/wmsv5Config.properties -O /data/fluxwms-config/wmsv5Config.properties
 sudo wget https://repo.huaweicloud.com/java/jdk/8u181-b13/jdk-8u181-linux-x64.tar.gz -O /data/software/jdk-8u181-linux-x64.tar.gz
 tar -zxvf /data/software/jdk-8u181-linux-x64.tar.gz
 sudo cp -R jdk1.8.0_181/ /data
@@ -38,6 +39,11 @@ cp setenv.sh apache-tomcat-9.0.14/bin
 #------------------------ Modify server.xml
 sudo sed -i 's/Connector port="8080"/Connector port="8080" URIEncoding="UTF-8"/' apache-tomcat-9.0.14/conf/server.xml
 sudo sed -i 's+shared.loader=+shared.loader="/data/apache-tomcat-9.0.14/lib","/data/apache-tomcat-9.0.14/lib/*.jar"+' apache-tomcat-9.0.14/conf/catalina.properties
+#
+sed -i 's/\(<Valve className="org.apache.catalina.valves.RemoteAddrValve"\)/<!--\1/g' apache-tomcat-9.0.14/webapps/manager/META-INF/context.xml 
+sed -i 's/\(<Manager sessionAttributeValueClassNameFilter=\)/-->\1/g' apache-tomcat-9.0.14/webapps/manager/META-INF/context.xml
+sed -i 's|</tomcat-users>|<user username="tomcat" password="tomcat31337" roles="manager-gui"/>&|g' apache-tomcat-9.0.14/conf/tomcat-users.xml
+
 #------------------------ Update TOMCAT libraries
 #------------------------ Deploy sample .war file
 #sudo wget https://archive.org/download/wms-hls-installer/birt.war
