@@ -18,7 +18,7 @@ sudo sed -i '$a maxClientCnxns=200' /data/apache-zookeeper-3.7.1-bin/conf/zoo.cf
 sudo sed -i '$a autopurge.snapRetainCount=3' /data/apache-zookeeper-3.7.1-bin/conf/zoo.cfg
 sudo sed -i '$a autopurge.purgeInterval=2' /data/apache-zookeeper-3.7.1-bin/conf/zoo.cfg
 #---------------------- add Log directory into zookeeper zkEnv.sh
-sudo sed -i 's/\$ZOOKEEPER_PREFIX\/logs/\/data\/zk-dataLogDir/g'
+sudo sed -i 's/\$ZOOKEEPER_PREFIX\/logs/\/data\/zk-dataLogDir/g' /data/apache-zookeeper-3.7.1-bin/bin/zkEnv.sh
 #---------------------- KAFKA Installation
 sudo mkdir /data/kafka-logs
 sudo wget https://archive.apache.org/dist/kafka/2.2.1/kafka_2.11-2.2.1.tgz -O /data/software/kafka_2.11-2.2.1.tgz
