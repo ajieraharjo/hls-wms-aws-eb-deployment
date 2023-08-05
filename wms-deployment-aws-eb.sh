@@ -144,5 +144,5 @@ echo '    ]' >> lifecycle.json
 echo '}' >> lifecycle.json
 aws s3api put-bucket-lifecycle --bucket $WMS_S3_BUCKET --lifecycle-configuration file://lifecycle.json
 rm -f ~/lifecycle.json
-#------------------------------ S3 Bucket name information for user
+#------------------------------ S3 Bucket name information for userhttps://www.baeldung.com/linux/run-script-on-startup
 echo  $WMS_S3_BUCKET
